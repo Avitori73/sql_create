@@ -1,0 +1,214 @@
+CREATE TABLE sp_mutation_order_info (
+
+	mutation_order_id_ int8 NOT null primary key,
+
+        site_id_ varchar(40) NOT NULL,
+
+	muation_order_no_ varchar(40) DEFAULT ' '::character varying NOT NULL,
+
+	request_no_ varchar(40) DEFAULT ' '::character varying NOT NULL,	
+
+	status_ varchar(40) NULL,
+
+	request_date_ varchar(8) DEFAULT ' '::character varying NOT NULL,
+
+	approve_date_ varchar(8) DEFAULT ' '::character varying NOT NULL,
+
+	approve_pic_id_ int8 NOT NULL,
+
+	cancel_date_ varchar(8) DEFAULT ' '::character varying NOT NULL,
+
+	cancel_pic_id_ int8 NOT NULL,
+
+	cancel_reason_ varchar(400) NULL,
+
+	shipment_date_ varchar(8) DEFAULT ' '::character varying NOT NULL,
+
+	from_organization_id_ int8,
+
+	to_organization_id_ int8,
+
+	comment_ varchar(400) NULL,
+
+	invoice_no_ varchar(40) NULL,
+
+	update_author_ varchar(40) DEFAULT ' '::character varying NOT NULL,
+
+	update_date_ timestamp NOT NULL,
+
+	create_author_ varchar(40) DEFAULT ' '::character varying NOT NULL,
+
+	create_date_ timestamp NOT NULL,
+
+	update_program_ varchar(20) DEFAULT ' '::character varying NOT NULL,
+
+	update_counter_ int4 DEFAULT 0 NOT NULL
+
+);
+ 
+ 
+CREATE TABLE sp_mutation_order_item (
+
+	mutation_order_item_id_ int8 NOT null primary key,
+
+        site_id_ varchar(40) NOT NULL,
+
+	mutation_order_id_ int8 NOT NULL,
+
+	product_id_ int8 NOT NULL,
+
+	request_qty_ numeric(18, 2) DEFAULT 0 NULL,
+
+	actual_order_qty_ numeric(18, 2) DEFAULT 0 NULL,
+
+	average_cost_ numeric(18, 2) DEFAULT 0 NULL,
+
+	discount_ numeric(6, 2) DEFAULT 0 NULL,
+
+	special_price_ numeric(18, 2) DEFAULT 0 NULL,
+
+	standard_price_ numeric(18, 2) DEFAULT 0 NULL,
+
+	selling_price_ numeric(18, 2) DEFAULT 0 NULL,
+
+	cancel_qty_ numeric(18, 2) DEFAULT 0 NULL,
+
+	shipment_qty_ numeric(18, 2) DEFAULT 0 NULL,
+
+	update_author_ varchar(40) DEFAULT ' '::character varying NOT NULL,
+
+	update_date_ timestamp NOT NULL,
+
+	create_author_ varchar(40) DEFAULT ' '::character varying NOT NULL,
+
+	create_date_ timestamp NOT NULL,
+
+	update_program_ varchar(20) DEFAULT ' '::character varying NOT NULL,
+
+	update_counter_ int4 DEFAULT 0 NOT NULL,
+
+);
+ 
+ CREATE TABLE sp_mutation_request_info (
+
+	mutation_request_id_ int8 NOT null primary key,
+
+        site_id_ varchar(40) NOT NULL,
+
+	request_no_ varchar(40) DEFAULT ' '::character varying NOT NULL,
+
+	request_date_ varchar(8) DEFAULT ' '::character varying NOT NULL,
+
+	request_pic_id_ int8 NOT NULL,
+
+	status_ varchar(40) NULL,
+
+	supplier_cancel_date_ varchar(8) DEFAULT ' '::character varying NOT NULL,
+
+	supplier_shipment_date_ varchar(8) DEFAULT ' '::character varying NOT NULL,
+
+	supplier_cancel_reason_ varchar(400) NULL,
+
+   from_organization_id_ int8,
+
+   to_organization_id_ int8,,
+
+	comment_ varchar(400) NULL,
+
+	receipt_slip_no_  varchar(40) DEFAULT ' '::character varying NOT NULL,
+
+	supplier_invoice_no_  varchar(40) DEFAULT ' '::character varying NOT NULL,
+
+	update_author_ varchar(40) DEFAULT ' '::character varying NOT NULL,
+
+	update_date_ timestamp NOT NULL,
+
+	create_author_ varchar(40) DEFAULT ' '::character varying NOT NULL,
+
+	create_date_ timestamp NOT NULL,
+
+	update_program_ varchar(20) DEFAULT ' '::character varying NOT NULL,
+
+	update_counter_ int4 DEFAULT 0 NOT NULL
+
+);
+ 
+
+
+CREATE TABLE sp_mutation_request_item (
+
+	mutation_request_item_id_ int8 NOT null primary key,
+
+        site_id_ varchar(40) NOT NULL,
+
+	mutation_request_id_ int8 NOT NULL,
+
+	product_id_ int8 NOT NULL,
+
+	request_qty_ numeric(18, 2) DEFAULT 0 NULL,
+
+	requst_price_ numeric(18, 2) DEFAULT 0 NULL,
+
+	cancel_qty_ numeric(18, 2) DEFAULT 0 NULL,
+
+	shipment_qty_ numeric(18, 2) DEFAULT 0 NULL,
+
+	update_author_ varchar(40) DEFAULT ' '::character varying NOT NULL,
+
+	update_date_ timestamp NOT NULL,
+
+	create_author_ varchar(40) DEFAULT ' '::character varying NOT NULL,
+
+	create_date_ timestamp NOT NULL,
+
+	update_program_ varchar(20) DEFAULT ' '::character varying NOT NULL,
+
+	update_counter_ int4 DEFAULT 0 NOT NULL
+
+);
+ 
+
+ CREATE TABLE sp_order_delivery_item_relation (
+
+    relation_id_  int8 NOT NULL primary key,
+
+    site_id_ character varying(40) DEFAULT ' ' NOT NULL,
+
+    dealer_partition_ character varying(20) NOT NULL,
+
+    quantity_ numeric(18,2) DEFAULT 0,
+
+    delivery_order_item_id_ int8,
+
+    order_item_id_ int8,
+
+    order_service_item_id_ int8,
+
+    coupon_no_ character varying(40),
+
+    order_no_ character varying(40),
+
+    order_date_ character varying(8) DEFAULT ' ' NOT NULL,
+
+    order_id_ int8,
+
+    service_order_id_ int8,
+
+    delivery_order_id_ int8,
+
+    delivery_date_ character varying(8),
+
+    update_author_ character varying(40) DEFAULT ' ' NOT NULL,
+
+    update_date_ timestamp with time zone NOT NULL,
+
+    create_author_ character varying(40) DEFAULT ' ' NOT NULL,
+
+    create_date_ timestamp with time zone NOT NULL,
+
+    update_program_ character varying(20) DEFAULT ' ' NOT NULL,
+
+    update_counter_ integer DEFAULT 0 NOT NULL,
+
+);
+ 
