@@ -1,4 +1,4 @@
-from sqlglot import parse, parse_one, exp, pretty
+from sqlglot import parse, parse_one, exp
 from rich.prompt import Prompt
 import pyperclip
 

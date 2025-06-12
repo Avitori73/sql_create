@@ -10,5 +10,8 @@ dependencies = [
     "sqlglot>=26.16.2",
 ]
 
+[tool.setuptools]
+package-dir = {"" = "src"}
+
 [project.scripts]
-cvt = "main:main"
+cvt = "cvt.main:main"
